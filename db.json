@@ -1,0 +1,58 @@
+{
+  "books": [
+    {
+      "id": "2bd7",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year": 1937,
+      "isAvailable": true
+    },
+    {
+      "id": "32a5",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year": 1937,
+      "isAvailable": true
+    },
+    {
+      "id": "2915",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year": 1937,
+      "isAvailable": true
+    },
+    {
+      "id": "d8b6",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "year": 1937,
+      "isAvailable": true
+    }
+  ],
+  "readers": [
+    {
+      "id": "bba2",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "borrowedBooks": []
+    },
+    {
+      "id": "121f",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "borrowedBooks": []
+    },
+    {
+      "id": "fc88",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "borrowedBooks": []
+    },
+    {
+      "id": "a5ed",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "borrowedBooks": []
+    }
+  ]
+}
