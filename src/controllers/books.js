@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Book = require("../models/book");
 
-getBooks = async (res, next) => {
+getBooks = async (req, res, next) => {
   try {
     const books = await Book.find();
     res.json(books);
@@ -40,6 +40,7 @@ updateBook = async (req, res, next) => {
     next(err);
   }
 };
+
 deleteBook = async (req, res, next) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id);
