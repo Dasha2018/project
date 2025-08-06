@@ -6,7 +6,7 @@ yarn-error.log*
 package-lock.json
 pnpm-lock.yaml
 
-# dotenv files (если есть конфиденциальные переменные окружения)
+# dotenv files 
 .env
 .env.local
 .env.development
@@ -37,5 +37,5 @@ coverage/
 *.tmp
 *.swp
 
-# TypeScript (если используешь)
+# TypeScript 
 *.tsbuildinfo
