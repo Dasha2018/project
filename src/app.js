@@ -1,4 +1,50 @@
-const http = require("http");
+const express = require("express");
+const dotenv = require("dotenv");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+
+const userRouter = require("./routes/users");
+const bookRouter = require("./routes/books");
+const loggerOne = require("./middlewares/loggerOne");
+const loggerTwo = require("./middlewares/loggerTwo");
+const errorHandler = require("./middlewares/errorHandler");
+
+dotenv.config();
+const app = express();
+
+const {
+  PORT = 3005,
+  API_URL = "127.0.0.1",
+  MONGO_URL = "mongodb://127.0.0.1:27017/backend",
+} = process.env;
+
+mongoose
+  .connect(`${MONGO_URL}`)
+  .then(() => console.log("MongoDB подключена"))
+  .catch((err) => console.error("Ошибка подключения MongoDB:", err));
+
+app.use(cors());
+app.use(loggerOne);
+
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.status(200).send("Hello world!");
+});
+
+app.post("/", (req, res) => {
+  res.status(200).send("Hello from POST!");
+});
+
+app.use("/", userRouter);
+app.use("/", bookRouter);
+app.use(errorHandler);
+
+app.listen(PORT, API_URL, () => {
+  console.log(`Сервер запущен по адресу http://${API_URL}:${PORT}`);
+});
+/* const http = require("http");
 const url = require("url");
 const getUsers = require("./modules/users");
 
@@ -48,3 +94,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Сервер запущен по адресу http://${hostname}:${port}`);
 });
+ */
