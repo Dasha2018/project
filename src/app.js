@@ -26,7 +26,7 @@ mongoose
 
 app.use(cors());
 app.use(loggerOne);
-app.use(errorHandler);
+
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
@@ -39,6 +39,7 @@ app.post("/", (req, res) => {
 
 app.use("/", userRouter);
 app.use("/", bookRouter);
+app.use(errorHandler);
 
 app.listen(PORT, API_URL, () => {
   console.log(`Сервер запущен по адресу http://${API_URL}:${PORT}`);

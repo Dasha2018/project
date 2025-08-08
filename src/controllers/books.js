@@ -43,8 +43,14 @@ updateBook = async (req, res, next) => {
 
 deleteBook = async (req, res, next) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Некорректный ID" });
+    }
+
     const book = await Book.findByIdAndDelete(req.params.id);
-    if (!book) return res.status(404).json({ error: "Книга не найдена" });
+    if (!book) {
+      return res.status(404).json({ error: "Книга не найдена" });
+    }
     res.json({ message: "Книга удалена" });
   } catch (err) {
     next(err);
